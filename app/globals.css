@@ -51,7 +51,8 @@
   /* Brand extras */
   --color-brand: var(--brand);
   --color-brand-glow: var(--brand-glow);
-  --color-sanfil-orange: var(--sanfil-orange)
+  --color-sanfil-orange: var(--sanfil-orange);
+  --color-gradient-brand: var(--gradient-brand);
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -108,6 +109,7 @@
   --sidebar-accent-foreground: oklch(0.97 0.01 240);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.65 0.22 250);
+
 }
 
 .dark {
@@ -183,7 +185,7 @@
     color: transparent;
   }
   .bg-gradient-brand {
-    background: linear-gradient(135deg, oklch(0.55 0.22 255), oklch(0.78 0.18 220));
+    background:linear-gradient(135deg, oklch(0.55 0.22 255), oklch(0.6 0.2 250) 42%, oklch(76.9% 0.17337 64.355));
   }
   .shadow-glow {
     box-shadow: 0 0 60px -10px oklch(0.65 0.22 250 / 0.5);
@@ -197,4 +199,27 @@
       linear-gradient(90deg, oklch(0.3 0.06 255 / 0.4) 1px, transparent 1px);
     background-size: 60px 60px;
   }
+}
+
+
+html {
+  scrollbar-width:thin;
+  scrollbar-color: var(--gradient-brand)  var(--background);
+}
+
+html::-webkit-scrollbar {
+  width: 4px;  
+}
+
+html::-webkit-scrollbar-track{
+  background: var(--background)
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--gradient-brand), var(--secondary));
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--gradient-brand), var(--secondary));
 }

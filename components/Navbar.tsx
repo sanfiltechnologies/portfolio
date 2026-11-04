@@ -78,8 +78,8 @@ export default function Navbar() {
               href={link.href}
               className={`font-body text-sm font-medium tracking-wide transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ${
                 scrolled
-                  ? "text-muted-foreground hover:text-accent"
-                  : "text-muted-foreground hover:text-accent"
+                  ? "text-muted-foreground hover:text-primary"
+                  : "text-muted-foreground hover:text-primary"
               } `}
             >
               {link.label}
@@ -90,11 +90,12 @@ export default function Navbar() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => handleLinkClick("#contact")}
-            className="px-6 py-2.5 rounded-full bg-linear-to-r from-primary to-sanfil-orange text-primary-foreground font-semibold text-xs tracking-wide shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.5)] transition-all duration-300  "
+            className="px-6 py-2.5 rounded-full bg-gradient-brand text-primary-foreground font-semibold text-xs tracking-wide shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.5)] transition-all duration-300  "
           >
             Get In Touch
           </motion.button>
         </div>
+
         {/* {mobile menu Button} */}
         <Button
           onClick={() => setIsOpen(!isOpen)}
@@ -116,7 +117,7 @@ export default function Navbar() {
             style={{ maxHeight: "80vh", overflowY: "auto" }}
           >
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {navLinks.map((link: NavLink, i: number) => (
+              {navLinks.map((link: NavLink) => (
                 <Link
                   key={link.label}
                   href={link.href}
