@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark));
-
 
 @theme {
   --radius-sm: calc(var(--radius) - 4px);
@@ -55,24 +54,23 @@
   --color-gradient-brand: var(--gradient-brand);
 
   /* Fonts */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'Space Grotesk', ui-monospace, monospace;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Grotesk", ui-monospace, monospace;
   --font-heading: var(--font-display);
 }
-
 
 :root {
   --radius: 0.625rem;
 
-  --background: oklch(0.13 0.04 260);       /* deep blue */
-  --foreground: oklch(0.97 0.01 240);       /* near-white */
+  --background: oklch(0.13 0.04 260); /* deep blue */
+  --foreground: oklch(0.97 0.01 240); /* near-white */
   --card: oklch(0.17 0.05 260);
   --card-foreground: oklch(0.97 0.01 240);
   --popover: oklch(0.17 0.05 260);
   --popover-foreground: oklch(0.97 0.01 240);
 
-  --primary: oklch(0.65 0.22 250);          /* bright blue */
+  --primary: oklch(0.65 0.22 250); /* bright blue */
   --primary-foreground: oklch(0.1 0.04 260);
   --secondary: oklch(0.28 0.05 260);
   --secondary-foreground: oklch(0.97 0.01 240);
@@ -110,6 +108,13 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.65 0.22 250);
 
+  /* FIX: define the gradient so --color-gradient-brand resolves */
+  --gradient-brand: linear-gradient(
+    135deg,
+    oklch(0.55 0.22 255),
+    oklch(0.6 0.2 250) 42%,
+    oklch(76.9% 0.17337 64.355)
+  );
 }
 
 .dark {
@@ -162,7 +167,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -178,14 +186,24 @@
   .bg-accent-transparent {
     background-color: oklch(0.17 0.05 260 / 0.85);
   }
-  .text-gradient {
-    background: linear-gradient(135deg, oklch(0.55 0.22 255), oklch(0.78 0.18 220));
+  .text-gradient-brand {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.22 255),
+      oklch(0.6 0.2 250) 42%,
+      oklch(76.9% 0.17337 64.355)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .bg-gradient-brand {
-    background:linear-gradient(135deg, oklch(0.55 0.22 255), oklch(0.6 0.2 250) 42%, oklch(76.9% 0.17337 64.355));
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.22 255),
+      oklch(0.6 0.2 250) 42%,
+      oklch(76.9% 0.17337 64.355)
+    );
   }
   .shadow-glow {
     box-shadow: 0 0 60px -10px oklch(0.65 0.22 250 / 0.5);
@@ -201,25 +219,26 @@
   }
 }
 
-
+/* Firefox: solid colors only — use the gradient's start color */
 html {
-  scrollbar-width:thin;
-  scrollbar-color: var(--gradient-brand)  var(--background);
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.55 0.22 255) var(--background);
 }
 
+/* Chromium / WebKit: full gradient thumb */
 html::-webkit-scrollbar {
-  width: 4px;  
+  width: 4px;
 }
 
-html::-webkit-scrollbar-track{
-  background: var(--background)
+html::-webkit-scrollbar-track {
+  background: var(--background);
 }
 
 html::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--gradient-brand), var(--secondary));
+  background: var(--gradient-brand);
   border-radius: 4px;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(var(--gradient-brand), var(--secondary));
+  background: var(--gradient-brand);
 }
