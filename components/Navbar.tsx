@@ -43,7 +43,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500  ${scrolled ? "bg-transparent backdrop-blur-xl shadow-lg border-b border-border" : "bg-transparent"}`}
     >
-      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
+      <div className="container mx-auto  px-4 sm:px-6 flex items-center justify-between h-20">
         <Link
           href="#home"
           className="flex items-center gap-1 shrink-0"
@@ -59,12 +59,12 @@ export default function Navbar() {
           />
           <div className="hidden sm:block">
             <p
-              className={`font-display text-lg  mt-2 font-bold leading-tight ${!scrolled ? "text-foreground" : "text-primary-foreground"}`}
+              className={`font-display text-lg  font-bold leading-tight ${!scrolled ? "text-foreground" : "text-white/50"}`}
             >
               Idea Transformation
             </p>
             <p
-              className={`text-xs font-mono tracking-wider ${!scrolled ? "text-muted-foreground" : "text-muted-foreground/80"} `}
+              className={`text-xs font-mono tracking-wider ${!scrolled ? "text-muted-foreground" : "text-foreground"} `}
             >
               Your Ideas our Execution
             </p>
