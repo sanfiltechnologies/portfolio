@@ -61,7 +61,42 @@ export default function Services() {
           <div className="text-sm uppercase tracking-widest text-brand-gold mb-3 ">
             What we build
           </div>
-        </motion.div>{" "}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 ">
+            {" "}
+            Seven services. One studio{" "}
+          </h2>
+          <p className="text-foreground/60 text-lg">
+            Pick a single discipline or stack them - most clients start with one
+            and grow int a long-term partnership{" "}
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.07 }}
+              whileHover={{ y: -6 }}
+              className="group relative p-7 rounded-2xl bg-panel border border-white/5 overflow-hiddem hover:border-(--brand-gold) transition-colors  "
+            >
+              <div className="absolute inset-0 bg-linear-to-br from-(--brand)/0 via transparent to-(--brand-glow)/0 group-hover:from(--brand)/10 group-hover:to-(--brand-glow)/5 transition-colors " />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-5 shadow-glow ">
+                  <s.icon className="w-6 h-6 text-primary-foreground " />
+                </div>
+                <h3 className="font-display font-semibold text-xl mb-2 ">
+                  {s.title}
+                </h3>
+                <p className="text-foreground/60 text-sm leading-relaxed">
+                  {s.desc}{" "}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
