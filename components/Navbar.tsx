@@ -130,7 +130,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => handleLinkClick(link.href)}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="font-mono text-foreground text-lg font-medium py-2 border-b bored-border/50 hover:text-primary transition-colors"
                 >
                   {link.label}
