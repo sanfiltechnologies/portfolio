@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function page() {
-  return (
-    <div>projects</div>
-  )
+  return <div>This part is still under progress</div>;
 }
