@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Services from "@/components/Services";
+import HowWeWork from "@/components/HowWeWork";
+import Faq from "@/components/Faq";
 
 export default function page() {
   return (
@@ -13,6 +15,8 @@ export default function page() {
       <Hero />
       <WhatsAppFloat />
       <Services />
+      <HowWeWork />
+      <Faq />
       <Footer />
     </div>
   );

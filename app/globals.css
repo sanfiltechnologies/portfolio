@@ -109,8 +109,7 @@
   --sidebar-accent-foreground: oklch(0.97 0.01 240);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.65 0.22 250);
-
-  /* FIX: define the gradient so --color-gradient-brand resolves */
+  --bg-panel: oklch(0.17 0.05 260);
   --gradient-brand: linear-gradient(
     135deg,
     oklch(0.55 0.22 255),
@@ -118,7 +117,6 @@
     oklch(76.9% 0.17337 64.355)
   );
 }
-
 .dark {
   --background: oklch(0.11 0.04 260);
   --foreground: oklch(0.97 0.01 240);
@@ -187,6 +185,9 @@
   }
   .bg-accent-transparent {
     background-color: oklch(0.17 0.05 260 / 0.85);
+  }
+  .bg-panel {
+    background-color: oklch(0.17 0.05 260);
   }
 
   .text-gradient-brand {
