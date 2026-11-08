@@ -7,6 +7,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Services from "@/components/Services";
 import HowWeWork from "@/components/HowWeWork";
 import Faq from "@/components/Faq";
+import Cta from "@/components/Cta";
 
 export default function page() {
   return (
@@ -17,6 +18,7 @@ export default function page() {
       <Services />
       <HowWeWork />
       <Faq />
+      <Cta />
       <Footer />
     </div>
   );
