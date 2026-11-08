@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -18,6 +18,16 @@ import {
 import Image from "next/image";
 
 export default function Hero() {
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      requestAnimationFrame(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
+
   return (
     <section id="home" className="relative pt-32 pb-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -68,6 +78,7 @@ export default function Hero() {
             <Link
               href="#services"
               className="px-6 py-3.5 rounded-full border border-border text-foreground hover:bg-white/5 transition-colors"
+              onClick={(e) => handleLinkClick(e, "#services")}
             >
               See what we do
             </Link>
