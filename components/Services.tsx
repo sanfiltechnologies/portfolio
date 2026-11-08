@@ -80,9 +80,9 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
               whileHover={{ y: -6 }}
-              className="group relative p-7 rounded-2xl bg-panel border border-white/5 overflow-hiddem hover:border-(--brand-gold) transition-colors  "
+              className="group relative p-7 rounded-2xl bg-panel border border-white/5 overflow-hidden hover:border-(--brand-gold) transition-colors  "
             >
-              <div className="absolute inset-0 bg-linear-to-br from-(--brand)/0 via transparent to-(--brand-glow)/0 group-hover:from(--brand)/10 group-hover:to-(--brand-glow)/5 transition-colors " />
+              <div className="absolute inset-0 bg-linear-to-br from-brand/0 via transparent to-brand-glow/0 group-hover:from-brand/10 group-hover:to-brand-glow/5 transition-colors " />
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-5 shadow-glow ">
                   <s.icon className="w-6 h-6 text-primary-foreground " />
