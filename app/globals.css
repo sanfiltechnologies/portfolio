@@ -188,9 +188,7 @@
   .bg-accent-transparent {
     background-color: oklch(0.17 0.05 260 / 0.85);
   }
-  .text-brand-gold {
-    background: oklch(0.8 0.16 80);
-  }
+
   .text-gradient-brand {
     background: linear-gradient(
       135deg,
