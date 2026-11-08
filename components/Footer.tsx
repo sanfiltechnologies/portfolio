@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { footer } from "framer-motion/client";
 
 export default function Footer() {
   const [year, setYear] = useState<number | null>();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchYear = async () => {
@@ -14,6 +14,20 @@ export default function Footer() {
     };
     fetchYear();
   }, []);
+
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setIsOpen(false);
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <footer id="contact" className="border-t border-border mt-32 bg-deep">
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
@@ -42,7 +56,11 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2 text-foreground">
             <li>
-              <Link href="/" className="hover:text-primary transition-all ">
+              <Link
+                href="#home"
+                className="hover:text-primary transition-all "
+                onClick={(e) => handleLinkClick(e, "#home")}
+              >
                 Home
               </Link>
             </li>
@@ -58,12 +76,17 @@ export default function Footer() {
               <Link
                 href="#services"
                 className="hover:text-primary transition-all "
+                onClick={(e) => handleLinkClick(e, "#services")}
               >
                 Services
               </Link>
             </li>
             <li>
-              <Link href="#faq" className="hover:text-primary transition-all ">
+              <Link
+                href="#faq"
+                className="hover:text-primary transition-all "
+                onClick={(e) => handleLinkClick(e, "#faq")}
+              >
                 FAQ
               </Link>
             </li>

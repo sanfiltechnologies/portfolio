@@ -19,7 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sanfil Technologies",
-  description: "Where your thoughts and ideas come to life",
+  description:
+    " From websites to mobile apps, IoT devices to point-of-sale systems - Sanfil Technologies designs, ships and maintains the digital backbone of modern businesses Where your thoughts and ideas come to life",
   alternates: {
     canonical: "https://sanfiltechnologies.com",
   },
