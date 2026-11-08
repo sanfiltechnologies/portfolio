@@ -73,7 +73,7 @@ export default function Navbar() {
           />
           <div className="hidden sm:block">
             <p
-              className={`font-display text-lg  font-bold leading-tight ${!scrolled ? "text-foreground" : "text-white/50"}`}
+              className={`font-mono text-lg  font-bold leading-tight ${!scrolled ? "text-foreground" : "text-white/50"}`}
             >
               Idea Transformation
             </p>
