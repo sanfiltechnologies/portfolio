@@ -30,10 +30,20 @@ export default function Navbar() {
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
     if (href.startsWith("#")) {
       e.preventDefault();
+
+      const wasOpen = isOpen;
       setIsOpen(false);
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const scroll = () => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
+      if (wasOpen) {
+        // wait for exit animation (300ms) before scrolling
+        setTimeout(scroll, 320);
+      } else {
+        scroll();
       }
     } else {
       setIsOpen(false);
@@ -131,7 +141,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="font-mono text-foreground text-lg font-medium py-2 border-b bored-border/50 hover:text-primary transition-colors"
+                  className="font-mono text-foreground text-lg font-medium py-2 border-b border-border/50 hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
