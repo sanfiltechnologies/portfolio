@@ -99,7 +99,7 @@ export default function Footer() {
           <ul className="space-y-2 text-foreground/70">
             <li>
               <Link
-                href="https:wa.me/254748092687"
+                href="https://wa.me/+254748092687"
                 className="hover:text-sanfil-orange"
               >
                 WhatsApp Chat
