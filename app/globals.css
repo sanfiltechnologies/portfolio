@@ -116,7 +116,7 @@
     oklch(0.6 0.2 250) 42%,
     oklch(76.9% 0.17337 64.355)
   );
-
+}
 .dark {
   --background: oklch(0.11 0.04 260);
   --foreground: oklch(0.97 0.01 240);
