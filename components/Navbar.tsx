@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavLink {
@@ -18,6 +19,9 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -28,28 +32,31 @@ export default function Navbar() {
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-
-      const wasOpen = isOpen;
+    if (!href.startsWith("#")) {
       setIsOpen(false);
+      return;
+    }
 
-      const scroll = () => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      };
+    e.preventDefault();
+    const wasOpen = isOpen;
+    setIsOpen(false);
 
-      if (wasOpen) {
-        // wait for exit animation (300ms) before scrolling
-        setTimeout(scroll, 320);
-      } else {
-        scroll();
-      }
+    const scroll = () => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
+
+    if (wasOpen) {
+      setTimeout(scroll, 320);
     } else {
-      setIsOpen(false);
+      scroll();
     }
   };
-
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -104,11 +111,7 @@ export default function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              setIsOpen(false);
-              const el = document.querySelector("#contact");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
+            onClick={(e) => handleLinkClick(e, "#contact")}
             className="px-6 py-2.5 rounded-full bg-gradient-brand text-primary-foreground font-semibold text-xs tracking-wide shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.5)] transition-all duration-300  "
           >
             Get In Touch
