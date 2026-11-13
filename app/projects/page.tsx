@@ -15,25 +15,64 @@ type Category =
   | "School Systems"
   | "POS"
   | "Maintenance";
-export default function Page() {
-  const projects: {
-    title: string;
-    cat: Category;
-    desc: string;
-    img: string;
-    link: string;
-    tags: string[];
-  }[] = [
-    {
-      title: "GainX limited ",
-      cat: "Websites",
-      desc: "High-conversion website for a brand growth company with great features. This is aimed at increasing the client base through  providing a strong online presence for the company ",
-      img: "/assets/gainxltd.jpg",
-      tags: ["Next.js", "TailwindCss"],
-      link: "https://gainxltd.com/",
-    },
-  ];
 
+const projects: {
+  title: string;
+  cat: Category;
+  desc: string;
+  img: string;
+  link: string;
+  tags: string[];
+}[] = [
+  {
+    title: "GainX limited ",
+    cat: "Websites",
+    desc: "High-conversion website for a brand growth company with great features. We bridge, strategy, and brand to accelerate your business success — delivering high-performance talent, compelling brand stories, and clear commercial pathways.",
+    img: "/assets/gainxltd.jpg",
+    tags: ["Next.js", "TailwindCss"],
+    link: "https://gainxltd.com/",
+  },
+  {
+    title: "Gemosons Designs & Build",
+    cat: "Websites",
+    desc: "Gemosons Designs and Build transforms architectural plans into tangible realities — from interior design to full-scale construction, with over a decade of expertise.",
+    img: "/assets/gemosons.jpg",
+    tags: ["Next.js", "TailwindCss", "Emailjs"],
+    link: "https://gemosons.vercel.app/",
+  },
+  {
+    title: "Corporate Munch",
+    cat: "Web Apps",
+    desc: "Ordering made easier for the corporate society and everyone in general through corporate munch. From nyama choma to pilau, get your favorite local dishes from the best restaurants delivered hot and fresh to your doorstep",
+    img: "/assets/corporatemunch.jpg",
+    tags: ["Next.js", "Nest.js", "Tailwindcss", "MongoDb"],
+    link: "https://corporate-munch.vercel.app/",
+  },
+  {
+    title: "Eldoret Badminton",
+    cat: "Websites",
+    desc: "From physical plays to an online platform where everything badminton is covered. Home of badminton excellence in Eldoret. Join us for competitive tournaments, professional coaching, and a passionate community of players.",
+    img: "/assets/eldoretbadminton.jpg",
+    tags: ["Nextjs", "Nestjs", "Tailwindcss", "PostgreSql"],
+    link: "https://eldoret-badminton.vercel.app/",
+  },
+  {
+    title: "AgroFLow",
+    cat: "IoT",
+    desc: "Irrigation made easier with Agro FLow where you get live feeds of the humidity, temperature and soil moisture content at the comfort of your screen. The system allows for automated irrigation just by the tap of your screen.",
+    img: "/assets/agroflow.jpg",
+    tags: [
+      "Nextjs",
+      "Nestjs",
+      "Tailwindcss",
+      "MongoDb",
+      "arduino",
+      "arduino IDE",
+    ],
+    link: "https://smart-irrigation-ashy.vercel.app/",
+  },
+];
+export default function Page() {
   const categories: ("All" | Category)[] = [
     "All",
     "Websites",
